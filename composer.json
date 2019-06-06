@@ -1,5 +1,5 @@
 {
-    "name": "shakurov/coinbase",
+    "name": "redlicorice/coinbase",
     "description": "Laravel wrapper for the Coinbase Commerce API",
     "keywords": [
         "laravel",
@@ -9,6 +9,10 @@
     ],
     "license": "MIT",
     "authors": [
+        {
+            "name": "RedLicorice",
+            "email": "red@licorice.com"
+        },
         {
             "name": "Vladimir Shakurov",
             "email": "vladimir@shakurov.com"

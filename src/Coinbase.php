@@ -4,6 +4,7 @@ namespace Shakurov\Coinbase;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Guzzle\Http\Exception\ClientErrorResponseException;
 use Illuminate\Support\Facades\Log;
 
 class Coinbase
@@ -96,6 +97,9 @@ class Coinbase
             $response = $this->client->request($method, $uri, ['query' => $query, 'body' => json_encode($params)]);
 
             return json_decode((string) $response->getBody(), true);
+        }catch (ClientErrorResponseException $exception) {
+            $responseBody = $exception->getResponse()->getBody(true);
+            Log::error($e->getMessage()." RESPONSE:".$responseBody);
         } catch(GuzzleException $e) {
             Log::error($e->getMessage());
         }
